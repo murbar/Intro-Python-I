@@ -22,3 +22,13 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+today = datetime.today()
+args = sys.argv[1:]
+if len(args) > 2:
+    print("Please provide only a month and year")
+else:
+    year = args[1] if len(args) > 1 else today.year
+    month = args[0] if len(args) > 0 else today.month
+    cal = calendar.TextCalendar()
+    cal.prmonth(int(year), int(month))
